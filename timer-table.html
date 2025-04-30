@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/tablet.css">
+    <title>타이머 - 시간기록 화면</title>
+</head>
+<body>
+    <div id="timer-table">
+        <div class="wrap">                
+            <header class="header">
+                <div class="header-in">
+                    <div class="header-left">
+                        <div class="thum">
+                            <img src="./img/header/back-arrow.png">
+                        </div>
+                    </div>
+                    <div class="header-tit">
+                        <h5>시간 기록</h5>
+                    </div>
+                    <div class="header-right">
+                        <div class="thum left" style="display: none;"> <!--아이콘 두개일때 활성화(display:none지우면됨)-->
+                            <img src="./img/header/header-timer.png">
+                        </div>
+                        <div class="thum" style="display: none;"> <!--아이콘 한개일때 활성화-->
+                            <img src="./img/header/header-setting.png">
+                        </div>
+                        <p style="display: none;">삭제</p> <!--글자버튼일때 활성화-->
+                        <select style="display: none;"> <!--랭킹 : 셀렉박스일때 활성화-->
+                            <option value="default">광명점 랭킹</option>
+                            <option value="state">신분</option>
+                        </select>
+                    </div>
+                </div>
+            </header>
+            <!-- <div class="calender-category">
+                <p>월간</p>
+                <p>주간</p>
+                <p class="on">일간</p>
+            </div> -->
+            <div class="ranking-calender">
+                <div class="ranking-calendar-header">
+                    <div class="arrow" id="prev"><img src="./img/calender/calender-prev.png" /></div>
+                    <div class="calender-date">
+                        <span id="today-text">2025년 4월 29일</span>
+                        <button class="toggle-button" id="toggle">
+                            <img src="./img/calender/calender-icon.png" alt="달력 토글" style="width: 18px; height: 18px;">
+                        </button>
+                    </div>
+                    <div class="arrow" id="next"><img src="./img/calender/calender-next.png" /></div>
+                </div>
+                  <div class="modal"></div>  
+                  <div class="calendar-view week" id="calendarView">
+                    <div class="week-view">
+                      <div class="weekdays">
+                        <div>월</div><div>화</div><div>수</div><div>목</div><div>금</div><div>토</div><div>일</div>
+                      </div>
+                      <div class="dates" id="weekDates"></div>
+                    </div>
+                
+                    <!-- Month View -->
+                    <div class="month-view">
+                      <div class="weekdays">
+                        <div>월</div><div>화</div><div>수</div><div>목</div><div>금</div><div>토</div><div>일</div>
+                      </div>
+                      <div class="dates" id="monthDates"></div>
+                    </div>
+                  </div>
+            </div>
+
+            <main class="main layout">
+                <div class="bottom-menu">
+                    <div class="bottom-in">
+                        <div class="bottom-item on">
+                            <img src="./img/bottom-menu/bottom-home-selected.png">
+                            <p>홈</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-study.png">
+                            <p>학습기록</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-content.png">
+                            <p>콘텐츠</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-my.png">
+                            <p>MY</p>
+                        </div>
+                    </div>
+                </div>    
+                <div class="main-con">
+                    <div class="sec-area">
+                        <table  id="timetable-body" class="timetable">
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div class="modal"></div>
+    </div>
+
+
+
+<script>
+    const todayText = document.getElementById('today-text');
+  const weekDates = document.getElementById('weekDates');
+  const monthDates = document.getElementById('monthDates');
+  const toggleBtn = document.getElementById('toggle');
+  const calendarView = document.getElementById('calendarView');
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
+  const modal = document.querySelector('.modal');
+  let view = 'week';
+
+  let currentDate = new Date();
+
+  function formatDate(date) {
+    return `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일`;
+  }
+
+  function renderHeader() {
+    todayText.textContent = formatDate(currentDate);
+  }
+
+  function getStartOfWeek(date) {
+    const d = new Date(date);
+    const day = d.getDay() === 0 ? 7 : d.getDay(); // Sunday = 7
+    d.setDate(d.getDate() - day + 1);
+    return d;
+  }
+  function getWeekOfMonth(date) {
+      const first = new Date(date.getFullYear(), date.getMonth(), 1);
+      const dayOfWeek = first.getDay() || 7;
+      const offsetDate = date.getDate() + dayOfWeek - 1;
+      return Math.ceil(offsetDate / 7);
+    }
+
+  function renderWeek() {
+    weekDates.innerHTML = '';
+    const startOfWeek = getStartOfWeek(currentDate);
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(startOfWeek);
+      d.setDate(d.getDate() + i);
+      const cell = document.createElement('div');
+      cell.textContent = d.getDate();
+      if (d.toDateString() === currentDate.toDateString()) {
+        cell.classList.add('today');
+      }
+
+      cell.addEventListener("click",()=>{
+        currentDate = new Date(d);
+        renderWeek();
+      })
+
+      weekDates.appendChild(cell);
+    }
+    const weekNumber = getWeekOfMonth(currentDate);
+    todayText.textContent = `${currentDate.getFullYear()}년 ${currentDate.getMonth()+1}월 ${weekNumber}주차`;
+  }
+
+  function renderMonth() {
+    monthDates.innerHTML = '';
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+    const startDay = firstDay.getDay() === 0 ? 7 : firstDay.getDay(); // Monday start
+    const totalDays = lastDay.getDate();
+    const totalCells = startDay + totalDays;
+    const weeks = Math.ceil(totalCells / 7);
+
+    // Empty cells
+    for (let i = 1; i < startDay; i++) {
+      monthDates.appendChild(document.createElement('div'));
+    }
+
+    // Dates
+    for (let i = 1; i <= lastDay.getDate(); i++) {
+      const d = new Date(year, month, i);
+      const cell = document.createElement('div');
+      cell.textContent = i;
+      if (d.toDateString() === currentDate.toDateString()) {
+        cell.classList.add('today');
+      }
+
+      cell.addEventListener('click',()=>{
+        currentDate = new Date(d);
+        renderMonth();
+      })
+
+      monthDates.appendChild(cell);
+    }
+    const weekNumber = getWeekOfMonth(currentDate);
+    todayText.textContent = `${currentDate.getFullYear()}년 ${currentDate.getMonth()+1}월 ${weekNumber}주차`;
+  }
+
+  function render() {
+    renderHeader();
+    renderWeek();
+    renderMonth();
+  }
+
+
+toggleBtn.addEventListener('click', () => {
+  if (calendarView.classList.contains('month')) {
+    calendarView.classList.remove('month');
+    calendarView.classList.add('week');
+    modal.classList.remove('on');
+  } else {
+    calendarView.classList.remove('week');
+    calendarView.classList.add('month');
+    modal.classList.add('on');
+  }
+});
+
+modal.addEventListener('click', () => {
+  if (calendarView.classList.contains('month')) {
+    calendarView.classList.remove('month');
+    calendarView.classList.add('week');
+    modal.classList.remove('on');
+  } else {
+  }
+});
+
+
+prevBtn.addEventListener('click', () => {
+      if (view === 'week') {
+        currentDate.setDate(currentDate.getDate() - 7);
+        renderWeek();
+      } else {
+        currentDate.setMonth(currentDate.getMonth() - 1);
+        renderMonth();
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (view === 'week') {
+        currentDate.setDate(currentDate.getDate() + 7);
+        renderWeek();
+      } else {
+        currentDate.setMonth(currentDate.getMonth() + 1);
+        renderMonth();
+      }
+    });
+
+render();
+
+
+// 일정 데이터 (시작시간과 종료시간 포함)
+const events = {
+      '2025-04-27': [
+        { start: 9, end: 11, description: '국어' },
+        { start: 14, end: 16, description: '수학' },
+      ],
+      '2025-04-28': [
+        { start: 10, end: 12, description: '영어' },
+        { start: 16, end: 18, description: '과학' },
+      ],
+      // 추가적인 날짜와 일정...
+    };
+
+    function renderTimetable() {
+      const timetableBody = document.getElementById('timetable-body');
+      timetableBody.innerHTML = [...Array(24).keys()].map(i => {
+        const hour = String(i + 1).padStart(2, '0');
+        const date = '2025-04-27'; // 예시로 고정된 날짜 (필요한 날짜로 수정 가능)
+
+        let eventContent = '';
+        let rowspan = 0;
+        
+        // 해당 시간에 일정이 있으면 표시
+        const dayEvents = events[date] || [];
+        dayEvents.forEach(event => {
+          if (event.start === i + 1) { // 시작 시간이 현재 시간과 일치
+            rowspan = event.end - event.start;
+            eventContent = `<div class="event">${event.description}</div>`;
+          }
+        });
+
+        // 일정이 두 시간 이상 걸쳐 있다면, 해당 td를 병합
+        return `
+          <tr>
+            <td>${hour}시</td>
+            <td ${rowspan > 0 ? `rowspan="${rowspan}"` : ''}>${eventContent}</td><td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    renderTimetable();
+
+    window.onload = function() {
+  var table = document.getElementById("timetable-body");
+  var rows = table.rows;
+
+  // 각 행을 순차적으로 처리
+  for (var i = 0; i < rows.length; i++) {
+    var cells = rows[i].cells;
+    
+    // 각 셀을 순차적으로 처리
+    for (var j = 0; j < cells.length; j++) {
+      var cell = cells[j];
+      
+      // rowspan이 1보다 큰 셀을 처리
+      if (cell.rowSpan > 1) {
+        // rowspan에 맞는 행에서 셀을 삭제
+        for (var k = 1; k < cell.rowSpan; k++) {
+          if (rows[i + k]) {
+            rows[i + k].deleteCell(j);
+          }
+        }
+      }
+    }
+  }
+};
+</script>
+
+</body>
+</html>
