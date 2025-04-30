@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/tablet.css">
+    <title>로그인/회원가입 - input 위에 라벨 없는 경우(로그인화면)</title>
+    <!-- 팝업 레이아웃 이 페이지에서 모두 정의합니다~! 아래에 있어용-->
+</head>
+<body>
+    <div id="login">
+        <div class="wrap">                
+            <header class="header">
+                <div class="header-in">
+                    <div class="header-left">
+                        <div class="thum">
+                            <img src="./img/header/back-arrow.png">
+                        </div>
+                    </div>
+                    <div class="header-tit">
+                        <h5>로그인</h5>
+                    </div>
+                    <div class="header-right">
+                        <div class="thum left" style="display: none;"> <!--아이콘 두개일때 활성화(display:none지우면됨)-->
+                            <img src="./img/header/header-timer.png">
+                        </div>
+                        <div class="thum" style="display: none;"> <!--아이콘 한개일때 활성화-->
+                            <img src="./img/header/header-setting.png">
+                        </div>
+                        <p style="display: none;">삭제</p> <!--글자버튼일때 활성화-->
+                        <select style="display: none;"> <!--랭킹 : 셀렉박스일때 활성화-->
+                            <option value="default">광명점 랭킹</option>
+                            <option value="state">신분</option>
+                        </select>
+                    </div>
+                </div>
+            </header>
+            <main class="main">
+                <div class="in">
+                    <div class="input-area">
+                        <div class="input-box">
+                            <input type="tel" placeholder="휴대폰 번호">
+                        </div>
+                        <div class="input-box password">
+                            <input type="password" placeholder="비밀번호">
+                            <img src="./img/login/password-hide.png">
+                        </div>
+                    </div>
+                    <div class="btn-area">
+                        <div class="in">
+                            <button type="button">로그인</button>
+                            <div class="quest-box">
+                                <p>회원가입</p>
+                                <p>비밀번호 찾기</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+
+
+        <!-- 팝업 케이스 01 : 버튼 한개 팝업 -->
+        <div class="pop-up" style="display: none;">
+            <div class="pop-txt">
+                <p>휴대폰 번호 혹은 비밀번호가<br>올바르지 않습니다.</p>
+            </div>
+            <div class="pop-btn">
+                <button type="button" class="btn01">확인</button>
+            </div>
+        </div>
+
+        <!-- 팝업 케이스 01-1 : 버튼 한개 팝업, 타이머 - 시간기록에서만 쓰는 팝업 -->
+        <div class="pop-up" style="display: none;">
+            <div class="pop-txt">
+                <p><strong>국어</strong></p>
+                <p class="pop-smalltxt">2025년 03월 18일</p>
+            </div>
+            <div class="pop-timer">
+                <p><strong>학습시간 </strong>| 01:40:42</p>
+                <p><strong>휴식시간 </strong>| 00:20:00</p>
+            </div>
+            <div class="pop-btn">
+                <button type="button" class="btn01">확인</button>
+            </div>
+        </div>        
+
+        <!-- 팝업 케이스 02 : 버튼 두개 팝업 -->
+        <div class="pop-up" style="display: none;">
+            <div class="pop-txt">
+                <p>타이머를 삭제해도<br>기존의 기록은 삭제되지 않습니다.</p>
+            </div>
+            <div class="pop-btn">
+                <button type="button" class="btn02">취소</button>
+                <button type="button" class="btn03">삭제</button>
+            </div>
+        </div>
+
+        <!-- 팝업 케이스 03 : 카테고리 추가 팝업(input 들어가는 팝업) -->
+        <div class="pop-up" style="display: none;">
+            <div class="pop-txt">
+                <p><strong>카테고리 추가</strong></p>
+            </div>
+            <div class="pop-input">
+                <input type="text" placeholder="카테고리명 입력">
+            </div>
+            <div class="pop-btn">
+                <button type="button" class="btn02">취소</button>
+                <button type="button" class="btn03">추가</button>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <script>
+        //값 입력됐을때 버튼 활성화 : 색상은 button에 클래스 on 넣어주심 됩니다
+        const inputs = document.querySelectorAll('.input-area input');
+        const button = document.querySelector('.btn-area button');
+
+        function checkInputs() {
+        const allFilled = Array.from(inputs).every(input => input.value.trim() !== '');
+        
+            if (allFilled) {
+                button.classList.add('on');
+                button.disabled = false;
+            } else {
+                button.classList.remove('on');
+                button.disabled = true;
+            }
+        }
+
+        //비번 아이콘 클릭
+        inputs.forEach(input => {
+            input.addEventListener('input', checkInputs);
+        });
+        
+        const toggleImg = document.querySelector('.password>img');
+        const passwordInput = document.querySelector('.password>input');
+
+        toggleImg.addEventListener('click', () => {
+            const isPassword = passwordInput.type === 'password';
+
+            passwordInput.type = isPassword ? 'text' : 'password';
+            toggleImg.src = isPassword ? './img/login/password-show.png' : './img/login/password-hide.png';
+        });
+    </script>
+</body>
+</html>

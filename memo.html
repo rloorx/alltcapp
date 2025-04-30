@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/tablet.css">
+    <title>메모장 화면</title>
+</head>
+<body>
+    <div id="memo">
+        <div class="wrap">                
+            <header class="header">
+                <div class="header-in">
+                    <div class="header-left">
+                        <div class="thum">
+                            <img src="./img/header/back-arrow.png">
+                        </div>
+                    </div>
+                    <div class="header-tit">
+                        <h5>메모장</h5>
+                    </div>
+                    <div class="header-right">
+                        <div class="thum left" style="display: none;"> <!--아이콘 두개일때 활성화(display:none지우면됨)-->
+                            <img src="./img/header/header-timer.png">
+                        </div>
+                        <div class="thum"> <!--아이콘 한개일때 활성화-->
+                            <img src="./img/header/search.png">
+                        </div>
+                        <p style="display: none;">삭제</p> <!--글자버튼일때 활성화-->
+                        <select style="display: none;"> <!--랭킹 : 셀렉박스일때 활성화-->
+                            <option value="default">광명점 랭킹</option>
+                            <option value="state">신분</option>
+                        </select>
+                    </div>
+                </div>
+            </header>
+            <div class="header-calender" style="display: none;">
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                      <button class="prev-month"><img src="./img/calender/calender-prev.png" /></button>
+                      <span class="current-month">2025년 4월</span>
+                      <button class="next-month"><img src="./img/calender/calender-next.png" /></button>
+                    </div>
+                  
+                    <div class="weekday-header">
+                      <div>월</div>
+                      <div>화</div>
+                      <div>수</div>
+                      <div>목</div>
+                      <div>금</div>
+                      <div>토</div>
+                      <div>일</div>
+                    </div>
+                  
+                    <div class="calendar-wrapper">
+                      <div class="calendar-slider"></div>
+                    </div>
+                  </div>
+                <div class="calender-open">
+                    <button type="button" class="cal-btn"></button>
+                </div>    
+            </div>
+
+            <main class="main layout">
+                <div class="bottom-menu">
+                    <div class="bottom-in">
+                        <div class="bottom-item on">
+                            <img src="./img/bottom-menu/bottom-home-selected.png">
+                            <p>홈</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-study.png">
+                            <p>학습기록</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-content.png">
+                            <p>콘텐츠</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-my.png">
+                            <p>MY</p>
+                        </div>
+                    </div>
+                </div>    
+                <div class="main-con">
+                    <div class="in">
+                        <div class="sec-area">
+                            <div class="sec-con pinkgra">
+                                <p class="memo-tit"><strong>가정법 공식</strong></p>
+                                <p>가정법 과거
+                                    <br>If + 주어 + 과거동사
+                                    <br>주어 + would/could +
+                                    동사원형
+                                    
+                                    <br>가정법 과거완료
+                                    <br>If + 주어 +had p.p
+                                    <br>주어 +would/could +
+                                    have p.p</p>
+                            </div>
+                            <div class="sec-con bluegra">
+                                <p>태정태세문단세~예성연중인명선~광인효현숙경영~정순헌철고순</p>
+                            </div>
+                            <div class="sec-con bluegra">
+                                <p>GDP(국내 총생산)
+                                    <br>국내에서 생산된 모든 가치
+                                    <br>
+                                    <br>GNP(국민 총생산)
+                                    <br>우리나라 국민이 만든 모든 가치</p>
+                            </div>
+                            <div class="sec-con greengra">
+                                <p class="memo-tit"><strong>국어 음운 변동</strong></p>
+                                <p>교체(음운 대치)
+                                    <br>축약
+                                    <br>탈락
+                                    <br>첨가</p>
+                            </div>
+                            <div class="sec-con yellowgra">
+                                <p class="memo-tit"><strong>면역반응 과정</strong></p>
+                                <p>1차방어 : 피부, 점막, 위산
+                                    <br>2차방어 : 백혈구(대식세포)
+                                    <br>3차방어 : 항원-항체반응(B세포,T세포)</p>
+                            </div>
+                        </div>
+                        <div class="sec-area no-memo" style="display: none;"> <!--등록된 메모 없을때 화면-->
+                            <div class="in">
+                                <div class="memo-thum">
+                                    <img src="./img/dday_goal/no-memo.png">
+                                </div>
+                                <p>메모를 등록해 주세요.</p>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <div class="bottom-btn">
+                <img src="./img/btn/memo-btn.png">
+            </div>
+        </div>
+        <div class="modal"></div>
+        <div class="bottom-memo">
+            <div class="memo-expand">
+                <img src="./img/dday_goal/memo-expand.png">
+            </div>
+            <textarea name="memo-text" class="memo-txt" placeholder="메모 내용을 작성하세요."></textarea>
+            <div class="color-pick">
+                <div class="white on"></div>
+                <div class="pinkgra"></div>
+                <div class="greengra"></div>
+                <div class="yellowgra"></div>
+                <div class="bluegra"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+<script>
+    const memoBtn = document.querySelector('.bottom-btn');
+    const modal = document.querySelector('.modal');
+    const bottomMemo = document.querySelector('.bottom-memo');
+
+    memoBtn.addEventListener("click", ()=>{
+        modal.classList.add("on");
+        bottomMemo.classList.add("on");
+    });
+
+    modal.addEventListener("click", () => {
+        modal.classList.remove("on");
+        bottomMemo.classList.remove("on");
+    });
+
+</script>
+
+</body>
+</html>

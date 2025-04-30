@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/tablet.css">
+    <title>D-Day 등록, 학습 목표 등록 화면</title>
+</head>
+<body>
+    <div id="daypicker">
+        <div class="wrap">                
+            <header class="header">
+                <div class="header-in">
+                    <div class="header-left">
+                        <div class="thum">
+                            <img src="./img/header/close.png">
+                        </div>
+                    </div>
+                    <div class="header-tit">
+                        <h5>D-Day 등록</h5>
+                    </div>
+                    <div class="header-right">
+                        <div class="thum left" style="display: none;"> <!--아이콘 두개일때 활성화(display:none지우면됨)-->
+                            <img src="./img/header/header-timer.png">
+                        </div>
+                        <div class="thum" style="display: none;"> <!--아이콘 한개일때 활성화-->
+                            <img src="./img/header/header-setting.png">
+                        </div>
+                        <p>삭제</p> <!--글자버튼일때 활성화-->
+                        <select style="display: none;"> <!--랭킹 : 셀렉박스일때 활성화-->
+                            <option value="default">광명점 랭킹</option>
+                            <option value="state">신분</option>
+                        </select>
+                    </div>
+                </div>
+            </header>
+            <div class="header-calender">
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                      <button class="prev-month"><img src="./img/calender/calender-prev.png" /></button>
+                      <span class="current-month">2025년 4월</span>
+                      <button class="next-month"><img src="./img/calender/calender-next.png" /></button>
+                    </div>
+                  
+                    <div class="weekday-header">
+                      <div>월</div>
+                      <div>화</div>
+                      <div>수</div>
+                      <div>목</div>
+                      <div>금</div>
+                      <div>토</div>
+                      <div>일</div>
+                    </div>
+                  
+                    <div class="calendar-wrapper">
+                      <div class="calendar-slider"></div>
+                    </div>
+                  </div>
+                <div class="calender-open">
+                    <button type="button" class="cal-btn"></button>
+                </div>    
+            </div>
+
+            <main class="main layout">
+                <div class="bottom-menu">
+                    <div class="bottom-in">
+                        <div class="bottom-item on">
+                            <img src="./img/bottom-menu/bottom-home-selected.png">
+                            <p>홈</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-study.png">
+                            <p>학습기록</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-content.png">
+                            <p>콘텐츠</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-my.png">
+                            <p>MY</p>
+                        </div>
+                    </div>
+                </div>    
+                <div class="main-con">
+                    <div class="sec sec1">
+                        <div class="in">
+                            <div class="daypick">
+                                <div class="daypick-con">
+                                    <p><strong>D-Day 제목</strong></p>
+                                    <input type="text" placeholder="D-Day 이름을 작성해 주세요.">
+                                </div>
+                                <div class="daypick-con">
+                                    <p><strong>D-Day 계산 방법</strong></p>
+                                    <div class="day-input pick on">
+                                        <div class="txt-area"><input type="radio" name="date" checked><span>날짜 입력</span></div>
+                                        <div class="daypick-box"><select></select></div>
+                                    </div>
+                                    <div class="day-input pick">
+                                        <div class="txt-area"><input type="radio" name="date"><span>남은 일 수 입력</span></div>
+                                        <div class="daypick-box"><input type="text"><span>일 뒤</span></div>
+                                    </div>
+                                </div>
+                                <div class="daypick-con">
+                                    <div class="day-input">
+                                        <p><strong>시간 설정</strong></p>
+                                        <div class="daypick-box">
+                                            <select></select>
+                                            <span>기준</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="daypick">
+                                <div class="daypick-color">
+                                    <p>컬러 선택</p>
+                                    <div class="color-pick">
+                                        <div class="white on"></div>
+                                        <div class="pinkgra"></div>
+                                        <div class="greengra"></div>
+                                        <div class="yellowgra"></div>
+                                        <div class="bluegra"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="btn-area">
+                                <button class="on">저장</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+
+
+<script type="text/javascript">
+    const boxes = document.querySelectorAll('.white, .pinkgra, .greengra, .yellowgra, .bluegra');
+
+    boxes.forEach(box => {
+    box.addEventListener('click', () => {
+        boxes.forEach(b => b.classList.remove('on'));
+        box.classList.add('on');
+    });
+    });
+
+    const radios = document.querySelectorAll('input[type="radio"][name="date"]');
+
+    radios.forEach(radio => {
+        radio.addEventListener('change', () => {
+            document.querySelectorAll('.day-input.pick').forEach(el => el.classList.remove('on'));
+            radio.closest('.day-input.pick').classList.add('on');
+        });
+    });
+</script>
+
+</body>
+</html>

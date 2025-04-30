@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/tablet.css">
+    <title>학습 목표 화면</title>
+</head>
+<body>
+    <div id="goal">
+        <div class="wrap">                
+            <header class="header">
+                <div class="header-in">
+                    <div class="header-left">
+                        <div class="thum">
+                            <img src="./img/header/back-arrow.png">
+                        </div>
+                    </div>
+                    <div class="header-tit">
+                        <h5>학습 목표</h5>
+                    </div>
+                    <div class="header-right">
+                        <div class="thum left" style="display: none;"> <!--아이콘 두개일때 활성화(display:none지우면됨)-->
+                            <img src="./img/header/header-timer.png">
+                        </div>
+                        <div class="thum" style="display: none;"> <!--아이콘 한개일때 활성화-->
+                            <img src="./img/header/header-setting.png">
+                        </div>
+                        <p style="display: none;">삭제</p> <!--글자버튼일때 활성화-->
+                        <select style="display: none;"> <!--랭킹 : 셀렉박스일때 활성화-->
+                            <option value="default">광명점 랭킹</option>
+                            <option value="state">신분</option>
+                        </select>
+                    </div>
+                </div>
+            </header>
+            <div class="header-calender" style="display: none;">
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                      <button class="prev-month"><img src="./img/calender/calender-prev.png" /></button>
+                      <span class="current-month">2025년 4월</span>
+                      <button class="next-month"><img src="./img/calender/calender-next.png" /></button>
+                    </div>
+                  
+                    <div class="weekday-header">
+                      <div>월</div>
+                      <div>화</div>
+                      <div>수</div>
+                      <div>목</div>
+                      <div>금</div>
+                      <div>토</div>
+                      <div>일</div>
+                    </div>
+                  
+                    <div class="calendar-wrapper">
+                      <div class="calendar-slider"></div>
+                    </div>
+                  </div>
+                <div class="calender-open">
+                    <button type="button" class="cal-btn"></button>
+                </div>    
+            </div>
+
+            <main class="main layout">
+                <div class="bottom-menu">
+                    <div class="bottom-in">
+                        <div class="bottom-item on">
+                            <img src="./img/bottom-menu/bottom-home-selected.png">
+                            <p>홈</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-study.png">
+                            <p>학습기록</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-content.png">
+                            <p>콘텐츠</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-my.png">
+                            <p>MY</p>
+                        </div>
+                    </div>
+                </div>    
+                <div class="main-con">
+                    <div class="in">
+                        <div class="sec-area">
+                            <div class="con-select">
+                                <select>
+                                    <option value="default">날짜 빠른 순</option>
+                                    <option value="opt02">등록 순</option>
+                                </select>
+                            </div>    
+                            <div class="sec-con pinkgra">
+                                <p class="time-top">~ 2025.03.31</p>
+                                <h4>3월 내로 단어장 하나 끝내기</h4>
+                            </div>
+                            <div class="sec-con yellowgra">
+                                <p class="time-top">~ 2025.03.31</p>
+                                <h4>중간고사 3합5 맞추기</h4>
+                            </div>
+                            <div class="sec-con bluegra">
+                                <h4>3월 내로 단어장 하나 끝내기</h4>
+                            </div>
+                            <div class="sec-con greengra">
+                                <h4>3월 내로 단어장 하나 끝내기</h4>
+                            </div>
+                            <div class="sec-con yellowgra">
+                                <h4>3월 내로 단어장 하나 끝내기</h4>
+                            </div>
+                            <div class="sec-con pinkgra">
+                                <p class="time-top">~ 2025.03.31</p>
+                                <h4>3월 내로 단어장 하나 끝내기</h4>
+                            </div>
+                        </div>
+                        <div class="sec-area no-goal" style="display: none;"> <!--등록된 디데이 없을때 화면-->
+                            <div class="in">
+                                <div class="goal-thum">
+                                    <img src="./img/dday_goal/no-goal.png">
+                                </div>
+                                <p>학습 목표를 등록해 주세요.</p>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <div class="bottom-btn">
+                <img src="./img/btn/goal-btn.png">
+            </div>
+        </div>
+    </div>
+
+
+
+<script>
+</script>
+
+</body>
+</html>

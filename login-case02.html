@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/tablet.css">
+    <title>로그인/회원가입 - input 위에 라벨 있는 경우</title>
+</head>
+<body>
+    <div id="login">
+        <div class="wrap">                
+            <header class="header">
+                <div class="header-in">
+                    <div class="header-left">
+                        <div class="thum">
+                            <img src="./img/header/back-arrow.png">
+                        </div>
+                    </div>
+                    <div class="header-tit">
+                        <h5>로그인</h5>
+                    </div>
+                    <div class="header-right">
+                        <div class="thum left" style="display: none;"> <!--아이콘 두개일때 활성화(display:none지우면됨)-->
+                            <img src="./img/header/header-timer.png">
+                        </div>
+                        <div class="thum" style="display: none;"> <!--아이콘 한개일때 활성화-->
+                            <img src="./img/header/header-setting.png">
+                        </div>
+                        <p style="display: none;">삭제</p> <!--글자버튼일때 활성화-->
+                        <select style="display: none;"> <!--랭킹 : 셀렉박스일때 활성화-->
+                            <option value="default">광명점 랭킹</option>
+                            <option value="state">신분</option>
+                        </select>
+                    </div>
+                </div>
+            </header>
+            <main class="main">
+                <div class="in">
+                    <div class="input-area">
+                        <div>
+                            <p>이름</p>
+                            <div class="input-box">
+                                <input type="text">
+                            </div>
+                        </div>
+                        <div>
+                            <p>생년월일(6자리)</p>
+                            <div class="input-box">
+                                <input type="number" pattern="\d*">
+                            </div>
+                        </div>
+                        <div>
+                            <p>휴대폰 번호</p>
+                            <div class="input-tel">
+                                <div class="input-box tel">
+                                    <input type="tel">
+                                </div>
+                                <button type="button">본인인증</button>
+                            </div>
+                            <div class="input-tel">
+                                <div class="input-box tel">
+                                    <input type="number" pattern="\d*">
+                                </div>
+                                <button type="button">인증확인</button>
+                            </div>
+                        </div>
+                        <div style="display: none;"> <!--신분선택 : display none 해제해주시면 됩니당-->
+                            <p>신분</p>
+                            <div class="input-box state">
+                                <p>신분 태그 선택</p>
+                                <img src="./img/login/next-arrow.png">
+                            </div>
+                        </div>
+                        <div style="display: none;"> <!--비번-->
+                            <p>비밀번호</p>
+                            <div class="input-box password">
+                                <input type="password" placeholder="영문, 숫자 포함 8 ~ 16자">
+                                <img src="./img/login/password-hide.png">
+                            </div>
+                        </div>
+                        <div style="display: none;"> <!--비번확인-->
+                            <p>비밀번호 확인</p>
+                            <div class="input-box password">
+                                <input type="password" placeholder="한번 더 입력해 주세요.">
+                                <img src="./img/login/password-hide.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-area">
+                        <div class="in">
+                            <button type="button">로그인</button>
+                            <div class="quest-box">
+                                <p>회원가입</p>
+                                <p>비밀번호 찾기</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+
+
+    <script>
+    </script>
+</body>
+</html>

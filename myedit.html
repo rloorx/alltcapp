@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/tablet.css">
+    <title>마이페이지 - 개인정보 수정 화면</title>
+</head>
+<body>
+    <div id="myedit">
+        <div class="wrap">
+            <header class="header">
+                <div class="header-in">
+                    <div class="header-left">
+                        <div class="thum">
+                            <img src="./img/header/back-arrow.png">
+                        </div>
+                    </div>
+                    <div class="header-tit">
+                        <h5>개인정보 수정</h5>
+                    </div>
+                    <div class="header-right">
+                        <div class="thum left" style="display: none;"> <!--아이콘 두개일때 활성화(display:none지우면됨)-->
+                            <img src="./img/header/header-timer.png">
+                        </div>
+                        <div class="thum" style="display: none;"> <!--아이콘 한개일때 활성화-->
+                            <img src="./img/header/search.png">
+                        </div>
+                        <p style="display: none;">삭제</p> <!--글자버튼일때 활성화-->
+                        <select style="display: none;"> <!--랭킹 : 셀렉박스일때 활성화-->
+                            <option value="default">광명점 랭킹</option>
+                            <option value="state">신분</option>
+                        </select>
+                    </div>
+                </div>
+            </header>
+            <div class="header-calender" style="display: none;">
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                      <button class="prev-month"><img src="./img/calender/calender-prev.png" /></button>
+                      <span class="current-month">2025년 4월</span>
+                      <button class="next-month"><img src="./img/calender/calender-next.png" /></button>
+                    </div>
+                  
+                    <div class="weekday-header">
+                      <div>월</div>
+                      <div>화</div>
+                      <div>수</div>
+                      <div>목</div>
+                      <div>금</div>
+                      <div>토</div>
+                      <div>일</div>
+                    </div>
+                  
+                    <div class="calendar-wrapper">
+                      <div class="calendar-slider"></div>
+                    </div>
+                  </div>
+                <div class="calender-open">
+                    <button type="button" class="cal-btn"></button>
+                </div>    
+            </div>
+
+            <main class="main layout">
+                <div class="bottom-menu">
+                    <div class="bottom-in">
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-home.png">
+                            <p>홈</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-study.png">
+                            <p>학습기록</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-content.png">
+                            <p>콘텐츠</p>
+                        </div>
+                        <div class="bottom-item on">
+                            <img src="./img/bottom-menu/bottom-my-selected.png">
+                            <p>MY</p>
+                        </div>
+                    </div>
+                </div>    
+                <div class="main-con">
+                    <div class="in">
+                        <div class="sec-area">
+                            <div class="profile-image">
+                                <img src="./img/mypage/user.png">
+                                <button><img src="./img/mypage/profile-edit.png"></button>
+                            </div>
+                            <div class="profile-info">
+                                <div>
+                                    <p>이름</p>
+                                    <div class="input-box">
+                                        <input type="text" placeholder="홍길동" disabled>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p>신분</p>
+                                    <div class="input-box state">
+                                        <p>신분 태그 선택</p>
+                                        <img src="./img/login/next-arrow.png">
+                                    </div>
+                                </div>
+                                <div>
+                                    <p>생년월일</p>
+                                    <div class="input-box">
+                                        <input type="text" placeholder="2006.05.10" disabled>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p>휴대폰 번호</p>
+                                    <div class="input-tel">
+                                        <div class="input-box tel">
+                                            <input type="tel">
+                                        </div>
+                                        <button type="button">본인인증</button>
+                                    </div>
+                                    <div class="input-tel">
+                                        <div class="input-box tel">
+                                            <input type="number" pattern="\d*">
+                                        </div>
+                                        <button type="button">인증확인</button>
+                                    </div>
+                                </div>                
+                            </div>
+                            <p class="delete-account">회원 탈퇴</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+
+
+<script>
+</script>
+
+</body>
+</html>

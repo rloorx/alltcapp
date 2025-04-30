@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+/* 태블릿 세로 반응형 */
+@media screen and (min-width: 600px) and (orientation: portrait){
+    #splash .thum img{
+        height: 80px;
+    }    
+    #splash .login-btn button{
+        height: 45px;
+        font-size: var(--font16);
+    }
+    #splash .consult p{
+        font-size: var(--font16);
+    }
+    
+}
+
+
+
+/* 태블릿 가로 반응형 */
+@media screen and (min-width: 1024px) and (orientation: landscape){
+    
+}

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/tablet.css">
+    <title>타이머 상세화면</title>
+</head>
+<body>
+    <div id="timerdetail">
+        <div class="wrap">                
+            <header class="header">
+                <div class="header-in">
+                    <div class="header-left">
+                        <div class="thum">
+                            <img src="./img/header/back-arrow.png">
+                        </div>
+                    </div>
+                    <div class="header-tit">
+                        <h5>국어</h5>
+                    </div>
+                    <div class="header-right">
+                        <div class="thum left" style="display: none;"> <!--아이콘 두개일때 활성화(display:none지우면됨)-->
+                            <img src="./img/header/header-timer.png">
+                        </div>
+                        <div class="thum"> <!--아이콘 한개일때 활성화-->
+                            <img src="./img/header/header-setting.png">
+                        </div>
+                        <p style="display: none;">삭제</p> <!--글자버튼일때 활성화-->
+                        <select style="display: none;"> <!--랭킹 : 셀렉박스일때 활성화-->
+                            <option value="default">광명점 랭킹</option>
+                            <option value="state">신분</option>
+                        </select>
+                    </div>
+                </div>
+            </header>
+            <div class="header-calender" style="display: none;">
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                      <button class="prev-month"><img src="./img/calender/calender-prev.png" /></button>
+                      <span class="current-month">2025년 4월</span>
+                      <button class="next-month"><img src="./img/calender/calender-next.png" /></button>
+                    </div>
+                  
+                    <div class="weekday-header">
+                      <div>월</div>
+                      <div>화</div>
+                      <div>수</div>
+                      <div>목</div>
+                      <div>금</div>
+                      <div>토</div>
+                      <div>일</div>
+                    </div>
+                  
+                    <div class="calendar-wrapper">
+                      <div class="calendar-slider"></div>
+                    </div>
+                  </div>
+                <div class="calender-open">
+                    <button type="button" class="cal-btn"></button>
+                </div>    
+            </div>
+
+            <main class="main layout">
+                <div class="bottom-menu">
+                    <div class="bottom-in">
+                        <div class="bottom-item on">
+                            <img src="./img/bottom-menu/bottom-home-selected.png">
+                            <p>홈</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-study.png">
+                            <p>학습기록</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-content.png">
+                            <p>콘텐츠</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-my.png">
+                            <p>MY</p>
+                        </div>
+                    </div>
+                </div>    
+                <div class="main-con">
+                    <div class="sec sec1">
+                        <div class="in">
+                            <h1>00:59:59</h1>
+                            <div class="timer-detail-area">
+                                <p><span style="display: block; font-size: inherit;">오늘의 학습 시간</span><strong>01:59:58</strong></p>
+                                <p class="time-rest"><span style="display: block; font-size: inherit;">휴식 시간</span><strong>00:00:00</strong></p>
+                            </div>
+                            <div class="timer-btn-area">
+                                <div class="btn-case">
+                                    <button type="button" class="pause-btn" style="display: none;">휴식</button>
+                                    <div class="pomodoro"><img src="./img/timer/tomato.png"><p>뽀모도로 0회</p></div>
+                                </div>
+                                <button type="button" class="stop-btn">종료</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="in">
+                        <div class="sec sec2">
+                            <div class="tab-menu">
+                                <div class="rank-btn on">
+                                    <img src="./img/timer/menu-rank.png">
+                                    <p class="font"><strong>랭킹</strong></p>
+                                </div>
+                                <div class="todo-btn">
+                                    <p class="font"><strong>To-Do</strong></p>
+                                </div>
+                            </div>
+                            <div class="rank-area on"><!--랭킹-->
+                                <div class="rank-tab">
+                                    <button class="place on">광명점 랭킹</button>
+                                    <button class="state">고3/N수생</button>
+                                </div>
+                                <div class="my-rank">
+                                    <div class="rank-con">
+                                        <img src="./img/user-img.png">
+                                        <span class="rank-num">99위</span>
+                                        <p class="rank-name">홍길동</p>
+                                        <span class="rank-time"><strong>00:59:59</strong></span>
+                                    </div>
+                                </div>
+                                <div class="rank-all">
+                                    <div class="rank-con">
+                                        <img src="./img/user-img.png">
+                                        <span class="rank-num">1위</span>
+                                        <p class="rank-name"><img src="./img/timer/medal-gold.png">이승연</p>
+                                        <span class="rank-time"><strong>00:59:59</strong></span>
+                                    </div>
+                                    <div class="rank-con">
+                                        <img src="./img/user-img.png">
+                                        <span class="rank-num">2위</span>
+                                        <p class="rank-name"><img src="./img/timer/medal-silver.png">김예진</p>
+                                        <span class="rank-time"><strong>00:59:59</strong></span>
+                                    </div>
+                                    <div class="rank-con">
+                                        <img src="./img/user-img.png">
+                                        <span class="rank-num">3위</span>
+                                        <p class="rank-name"><img src="./img/timer/medal-bronze.png">서채린</p>
+                                        <span class="rank-time"><strong>00:59:59</strong></span>
+                                    </div>
+                                    <div class="rank-con">
+                                        <img src="./img/user-img.png">
+                                        <span class="rank-num">4위</span>
+                                        <p class="rank-name">박송은</p>
+                                        <span class="rank-time"><strong>00:59:59</strong></span>
+                                    </div>
+                                    <div class="rank-con">
+                                        <img src="./img/user-img.png">
+                                        <span class="rank-num">5위</span>
+                                        <p class="rank-name">홍길동</p>
+                                        <span class="rank-time"><strong>00:59:59</strong></span>
+                                    </div>
+                                    <div class="rank-con">
+                                        <img src="./img/user-img.png">
+                                        <span class="rank-num">6위</span>
+                                        <p class="rank-name">홍길동</p>
+                                        <span class="rank-time"><strong>00:59:59</strong></span>
+                                    </div>
+                                    <div class="rank-con">
+                                        <img src="./img/user-img.png">
+                                        <span class="rank-num">7위</span>
+                                        <p class="rank-name">홍길동</p>
+                                        <span class="rank-time"><strong>00:59:59</strong></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="todo-area"><!--ToDo-->
+                                <div class="todo-con">
+                                    <div class="sec-top">
+                                        <div class="sec-tit">
+                                            <div class="pink"></div>
+                                            <p><strong>국어</strong></p>
+                                        </div>
+                                        <div class="sec-menu">
+                                            <img src="./img/timer/todo-plus.png">
+                                        </div>
+                                    </div>
+                                    <div class="sec-list"></div>
+                                </div>
+                                <div class="todo-con">
+                                    <div class="sec-top">
+                                        <div class="sec-tit">
+                                            <div class="blue"></div>
+                                            <p><strong>영어</strong></p>
+                                        </div>
+                                        <div class="sec-menu">
+                                            <img src="./img/timer/todo-plus.png">
+                                        </div>
+                                    </div>
+                                    <div class="sec-list">
+                                        <div class="todo-list">
+                                            <input type="checkbox">
+                                            <span>단어 100개 테스트</span>
+                                        </div>
+                                        <div class="todo-list">
+                                            <input type="checkbox">
+                                            <span>모의고사 1회 풀기</span>
+                                        </div>
+                                        <div class="todo-list">
+                                            <input type="checkbox">
+                                            <span>영지문 해석</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="todo-con">
+                                    <div class="sec-top">
+                                        <div class="sec-tit">
+                                            <div class="green"></div>
+                                            <p><strong>수학</strong></p>
+                                        </div>
+                                        <div class="sec-menu">
+                                            <img src="./img/timer/todo-plus.png">
+                                        </div>
+                                    </div>
+                                    <div class="sec-list">
+                                        <div class="todo-list">
+                                            <input type="checkbox">
+                                            <span>인강 3차시 듣기</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="todo-over"> <!--기한초과-->
+                                    <div class="todo-label">
+                                        <p><strong>기한 초과</strong></p>
+                                    </div>
+                                    <div class="todo-con">
+                                        <div class="sec-top">
+                                            <div class="sec-tit">
+                                                <div class="blue"></div>
+                                                <p><strong>영어</strong></p>
+                                            </div>
+                                        </div>
+                                        <div class="sec-list">
+                                            <div class="todo-list">
+                                                <input type="checkbox">
+                                                <span>단어 100개 테스트</span>
+                                            </div>
+                                            <div class="todo-list">
+                                                <input type="checkbox">
+                                                <span>모의고사 1회 풀기</span>
+                                            </div>
+                                            <div class="todo-list">
+                                                <input type="checkbox">
+                                                <span>영지문 해석</span>
+                                            </div>
+                                        </div>
+                                    </div>    
+                                </div>
+                                <div class="todo-complete"> <!--완료-->
+                                    <div class="todo-label">
+                                        <p><strong>완료</strong></p>
+                                    </div>
+                                    <div class="todo-con">
+                                        <div class="sec-top">
+                                            <div class="sec-tit">
+                                                <div class="pink"></div>
+                                                <p><strong>국어</strong></p>
+                                            </div>
+                                        </div>
+                                        <div class="sec-list">
+                                            <div class="todo-list">
+                                                <input type="checkbox" checked>
+                                                <span>단어 100개 테스트</span>
+                                            </div>
+                                            <div class="todo-list">
+                                                <input type="checkbox" checked>
+                                                <span>모의고사 1회 풀기</span>
+                                            </div>
+                                        </div>
+                                    </div>    
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+
+
+<script>
+const tabButtons = document.querySelectorAll('.tab-menu > div');
+const contentAreas = {
+  'rank-btn': document.querySelector('.rank-area'),
+  'todo-btn': document.querySelector('.todo-area')
+};
+
+tabButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    tabButtons.forEach(btn => btn.classList.remove('on'));
+    // 모든 콘텐츠 영역에서 on 제거
+    Object.values(contentAreas).forEach(area => area.classList.remove('on'));
+
+    // 현재 클릭한 버튼에 on 추가
+    button.classList.add('on');
+
+    // 버튼 클래스명에 따라 해당 영역에 on 추가
+    const areaKey = [...button.classList].find(cls => cls.endsWith('-btn'));
+    if (areaKey && contentAreas[areaKey]) {
+      contentAreas[areaKey].classList.add('on');
+    }
+  });
+});
+
+const rankTabButtons = document.querySelectorAll('.rank-tab button');
+
+rankTabButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    // 모든 버튼에서 on 제거
+    rankTabButtons.forEach(btn => btn.classList.remove('on'));
+
+    // 클릭한 버튼에만 on 추가
+    button.classList.add('on');
+  });
+});
+
+function updateTimeRestOpacity() {
+  const pomodoro = document.querySelector('.pomodoro');
+  const timeRest = document.querySelector('.time-rest');
+
+  if (pomodoro && timeRest) {
+    const isVisible = window.getComputedStyle(pomodoro).display !== 'none';
+
+    timeRest.style.opacity = isVisible ? '0.4' : '1';
+  }
+}
+
+// 초기 체크
+updateTimeRestOpacity();
+
+// 필요할 때 수동 호출하거나, DOM 상태가 바뀔 때 연결
+// 예시: 토글 시 .pomodoro 보임/숨김 제어 후 호출
+document.querySelector('.toggle-switch')?.addEventListener('click', () => {
+  setTimeout(updateTimeRestOpacity, 0); // display 변경 후 실행되도록 살짝 지연
+});
+</script>
+
+</body>
+</html>

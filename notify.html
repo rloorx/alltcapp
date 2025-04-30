@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/tablet.css">
+    <title>알림화면</title>
+</head>
+<body>
+    <div id="notify">
+        <div class="wrap">                
+            <header class="header">
+                <div class="header-in">
+                    <div class="header-left">
+                        <div class="thum">
+                            <img src="./img/header/back-arrow.png">
+                        </div>
+                    </div>
+                    <div class="header-tit">
+                        <h5>알림</h5>
+                    </div>
+                    <div class="header-right">
+                        <div class="thum left" style="display: none;"> <!--아이콘 두개일때 활성화(display:none지우면됨)-->
+                            <img src="./img/header/header-timer.png">
+                        </div>
+                        <div class="thum" style="display: none;"> <!--아이콘 한개일때 활성화-->
+                            <img src="./img/header/notify.png">
+                        </div>
+                        <p style="display: none;">삭제</p> <!--글자버튼일때 활성화-->
+                        <select style="display: none;"> <!--랭킹 : 셀렉박스일때 활성화-->
+                            <option value="default">광명점 랭킹</option>
+                            <option value="state">신분</option>
+                        </select>
+                    </div>
+                </div>
+            </header>
+
+            <main class="main layout">
+                <div class="bottom-menu">
+                    <div class="bottom-in">
+                        <div class="bottom-item on">
+                            <img src="./img/bottom-menu/bottom-home-selected.png">
+                            <p>홈</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-study.png">
+                            <p>학습기록</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-content.png">
+                            <p>콘텐츠</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-my.png">
+                            <p>MY</p>
+                        </div>
+                    </div>
+                </div>    
+                <div class="main-con">
+                    <div class="no-notify" style="display: none;"><!--알림없을때 화면-->
+                        <div class="in">
+                            <div class="noti-thum">
+                                <img src="./img/main/no-notify.png">
+                            </div>
+                            <p>새로운 알림이 없습니다.</p>
+                        </div>
+                    </div>
+                    <div class="con con-new"><!--신규 알림 -->
+                        <div class="in">
+                            <p class="date"><strong>25.01.01</strong></p>
+                            <div class="noti-con">
+                                <p>알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.</p>
+                            </div>
+                            <p class="bottom-date">25.01.01</p>
+                        </div>
+                    </div>
+                    <div class="con">
+                        <div class="in">
+                            <p class="date"><strong>25.01.01</strong></p>
+                            <div class="noti-con">
+                                <p>알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.</p>
+                            </div>
+                            <p class="bottom-date">25.01.01</p>
+                        </div>
+                    </div>
+                    <div class="con">
+                        <div class="in">
+                            <p class="date"><strong>25.01.01</strong></p>
+                            <div class="noti-con">
+                                <p>알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.알림내용이 이곳에 표시됩니다.</p>
+                            </div>
+                            <p class="bottom-date">25.01.01</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+
+
+<script>
+const daysDisplay = ['월', '화', '수', '목', '금', '토', '일'];
+let currentDate = new Date();
+
+function renderCalendar(date) {
+  const slider = document.querySelector('.calendar-slider');
+  slider.innerHTML = '';
+
+  const year = date.getFullYear();
+  const month = date.getMonth();
+
+  const rawFirstDay = new Date(year, month, 1).getDay();
+  const firstDay = (rawFirstDay + 6) % 7;
+
+  const lastDate = new Date(year, month + 1, 0).getDate();
+  const prevLastDate = new Date(year, month, 0).getDate();
+
+  const today = new Date();
+  const totalCells = (firstDay + lastDate <= 35) ? 35 : 42;
+
+  for (let i = 0; i < totalCells; i++) {
+    const item = document.createElement('div');
+    item.className = 'date-item';
+
+    let cellDate;
+
+    if (i < firstDay) {
+      const day = prevLastDate - (firstDay - i - 1);
+      cellDate = new Date(year, month - 1, day);
+      item.classList.add('other-month');
+    } else if (i >= firstDay + lastDate) {
+      const day = i - (firstDay + lastDate) + 1;
+      cellDate = new Date(year, month + 1, day);
+      item.classList.add('other-month');
+    } else {
+      const day = i - firstDay + 1;
+      cellDate = new Date(year, month, day);
+    }
+
+    const dayIndex = cellDate.getDay();
+    const dayLabel = daysDisplay[(dayIndex + 6) % 7]; 
+
+    const dateStr = `${cellDate.getDate()}`;
+
+    item.innerHTML = `
+      <span class="day">${dayLabel}</span>
+      <span class="date">${dateStr}</span>
+    `;
+
+    if (
+      cellDate.getFullYear() === today.getFullYear() &&
+      cellDate.getMonth() === today.getMonth() &&
+      cellDate.getDate() === today.getDate()
+    ) {
+        item.classList.add('today');
+    }
+
+        slider.appendChild(item);
+    }
+  // 상단 월 텍스트 갱신
+    document.querySelector('.current-month').textContent = `${year}년 ${month + 1}월`;
+
+  // 슬라이드 보기일 때만 오늘을 중앙 정렬 (왜잘안돼!!!!)
+    const wrapper = document.querySelector('.calendar-wrapper');
+    if (!document.querySelector('.calendar-container').classList.contains('expanded')) {
+        setTimeout(() => {
+        const todayEl = document.querySelector('.today');
+        if (wrapper && todayEl) {
+            const wrapperRect = wrapper.getBoundingClientRect();
+            const todayRect = todayEl.getBoundingClientRect();
+            const offset = todayEl.offsetLeft - (wrapperRect.width / 2) + (todayRect.width / 2);
+            wrapper.scrollLeft = offset;
+        }
+        }, 100);
+    }
+}
+
+// 초기 렌더링
+renderCalendar(currentDate);
+
+// 이전/다음 달 이동
+document.querySelector('.prev-month').addEventListener('click', () => {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    renderCalendar(currentDate);
+});
+document.querySelector('.next-month').addEventListener('click', () => {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    renderCalendar(currentDate);
+});
+
+// 달력 펼침/접힘
+document.querySelector('.calender-open button').addEventListener('click', () => {
+    const wrapper = document.querySelector('.calendar-container');
+    wrapper.classList.toggle('expanded');
+    renderCalendar(currentDate); // 상태 바뀌면 다시 그리기
+});    
+
+//접힌상태에서 7일 노출(이것또한잘안되는중)
+function updateItemWidths() {
+const container = document.querySelector('.header-calender');
+const items = document.querySelectorAll('.calendar-slider .date-item');
+const containerWidth = container.clientWidth;
+const itemWidth = containerWidth / 7;
+
+items.forEach(item => {
+    item.style.width = `${itemWidth}px`;
+});
+}
+
+// 렌더 직후 호출
+renderCalendar(currentDate);
+updateItemWidths();
+
+// 반응형 처리
+window.addEventListener('resize', updateItemWidths);
+
+</script>
+
+</body>
+</html>

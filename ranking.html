@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/tablet.css">
+    <title>랭킹 화면</title>
+</head>
+<body>
+    <div id="rank">
+        <div class="wrap">                
+            <header class="header">
+                <div class="header-in">
+                    <div class="header-left">
+                        <div class="thum">
+                            <img src="./img/header/back-arrow.png">
+                        </div>
+                    </div>
+                    <div class="header-tit">
+                        <h5>랭킹</h5>
+                    </div>
+                    <div class="header-right">
+                        <div class="thum left" style="display: none;"> <!--아이콘 두개일때 활성화(display:none지우면됨)-->
+                            <img src="./img/header/header-timer.png">
+                        </div>
+                        <div class="thum" style="display: none;"> <!--아이콘 한개일때 활성화-->
+                            <img src="./img/header/header-setting.png">
+                        </div>
+                        <p style="display: none;">삭제</p> <!--글자버튼일때 활성화-->
+                        <select> <!--랭킹 : 셀렉박스일때 활성화-->
+                            <option value="default">광명점 랭킹</option>
+                            <option value="state">신분</option>
+                        </select>
+                    </div>
+                </div>
+            </header>
+            <div class="calender-category">
+                <p>월간</p>
+                <p>주간</p>
+                <p class="on">일간</p>
+            </div>
+            <div class="ranking-calender">
+                <div class="ranking-calendar-header">
+                    <div class="arrow" id="prev"><img src="./img/calender/calender-prev.png" /></div>
+                    <div class="calender-date">
+                        <span id="today-text">2025년 4월 29일</span>
+                        <button class="toggle-button" id="toggle">
+                            <img src="./img/calender/calender-icon.png" alt="달력 토글" style="width: 18px; height: 18px;">
+                        </button>
+                    </div>
+                    <div class="arrow" id="next"><img src="./img/calender/calender-next.png" /></div>
+                </div>
+                  <div class="modal"></div>  
+                  <div class="calendar-view week" id="calendarView">
+                    <div class="week-view" style="display: none;">
+                      <div class="weekdays">
+                        <div>월</div><div>화</div><div>수</div><div>목</div><div>금</div><div>토</div><div>일</div>
+                      </div>
+                      <div class="dates" id="weekDates"></div>
+                    </div>
+                
+                    <!-- Month View -->
+                    <div class="month-view">
+                      <div class="weekdays">
+                        <div>월</div><div>화</div><div>수</div><div>목</div><div>금</div><div>토</div><div>일</div>
+                      </div>
+                      <div class="dates" id="monthDates"></div>
+                    </div>
+                  </div>
+            </div>
+
+            <main class="main layout">
+                <div class="bottom-menu">
+                    <div class="bottom-in">
+                        <div class="bottom-item on">
+                            <img src="./img/bottom-menu/bottom-home-selected.png">
+                            <p>홈</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-study.png">
+                            <p>학습기록</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-content.png">
+                            <p>콘텐츠</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-my.png">
+                            <p>MY</p>
+                        </div>
+                    </div>
+                </div>    
+                <div class="main-con">
+                    <div class="in">
+                        <div class="sec-area">
+                            <div class="medal-area">
+                                <div class="medal">
+                                    <img src="./img/ranking/gold.png">
+                                    <p class="name">이승연</p>
+                                    <p>02:59:59</p>
+                                </div>
+                                <div class="medal">
+                                    <img src="./img/ranking/silver.png">
+                                    <p class="name">김예진</p>
+                                    <p>02:59:58</p>
+                                </div>
+                                <div class="medal">
+                                    <img src="./img/ranking/bronze.png">
+                                    <p class="name">서채린</p>
+                                    <p>02:59:57</p>
+                                </div>
+                            </div>
+                            <div class="my-rank">
+                                <div class="tit">
+                                    <p class="font">나의 랭킹</p>
+                                    <p>광명점 상위 10%</p>
+                                </div>
+                                <div class="rank-con">
+                                    <img src="./img/user-img.png">
+                                    <span class="rank-num">99위</span>
+                                    <p class="rank-name">홍길동</p>
+                                    <span class="rank-time"><strong>00:59:59</strong></span>
+                                </div>
+                            </div>
+                            <div class="rank-all">
+                                <p class="font">전체 랭킹</p>
+                                <div class="rank-con">
+                                    <img src="./img/user-img.png">
+                                    <span class="rank-num">1위</span>
+                                    <p class="rank-name"><img src="./img/timer/medal-gold.png">이승연</p>
+                                    <span class="rank-time"><strong>00:59:59</strong></span>
+                                </div>
+                                <div class="rank-con">
+                                    <img src="./img/user-img.png">
+                                    <span class="rank-num">2위</span>
+                                    <p class="rank-name"><img src="./img/timer/medal-silver.png">김예진</p>
+                                    <span class="rank-time"><strong>00:59:59</strong></span>
+                                </div>
+                                <div class="rank-con">
+                                    <img src="./img/user-img.png">
+                                    <span class="rank-num">3위</span>
+                                    <p class="rank-name"><img src="./img/timer/medal-bronze.png">서채린</p>
+                                    <span class="rank-time"><strong>00:59:59</strong></span>
+                                </div>
+                                <div class="rank-con">
+                                    <img src="./img/user-img.png">
+                                    <span class="rank-num">4위</span>
+                                    <p class="rank-name">박송은</p>
+                                    <span class="rank-time"><strong>00:59:59</strong></span>
+                                </div>
+                                <div class="rank-con">
+                                    <img src="./img/user-img.png">
+                                    <span class="rank-num">5위</span>
+                                    <p class="rank-name">홍길동</p>
+                                    <span class="rank-time"><strong>00:59:59</strong></span>
+                                </div>
+                                <div class="rank-con">
+                                    <img src="./img/user-img.png">
+                                    <span class="rank-num">6위</span>
+                                    <p class="rank-name">홍길동</p>
+                                    <span class="rank-time"><strong>00:59:59</strong></span>
+                                </div>
+                                <div class="rank-con">
+                                    <img src="./img/user-img.png">
+                                    <span class="rank-num">7위</span>
+                                    <p class="rank-name">홍길동</p>
+                                    <span class="rank-time"><strong>00:59:59</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div class="modal"></div>
+    </div>
+
+
+
+<script>
+    const todayText = document.getElementById('today-text');
+  const weekDates = document.getElementById('weekDates');
+  const monthDates = document.getElementById('monthDates');
+  const toggleBtn = document.getElementById('toggle');
+  const calendarView = document.getElementById('calendarView');
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
+  const modal = document.querySelector('.modal');
+
+  let currentDate = new Date();
+
+  function formatDate(date) {
+    return `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일`;
+  }
+
+  function renderHeader() {
+    todayText.textContent = formatDate(currentDate);
+  }
+
+  function getStartOfWeek(date) {
+    const d = new Date(date);
+    const day = d.getDay() === 0 ? 7 : d.getDay(); // Sunday = 7
+    d.setDate(d.getDate() - day + 1);
+    return d;
+  }
+
+  function renderWeek() {
+    weekDates.innerHTML = '';
+    const startOfWeek = getStartOfWeek(currentDate);
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(startOfWeek);
+      d.setDate(d.getDate() + i);
+      const cell = document.createElement('div');
+      cell.textContent = d.getDate();
+      if (d.toDateString() === currentDate.toDateString()) {
+        cell.classList.add('today');
+      }
+      weekDates.appendChild(cell);
+    }
+  }
+
+  function renderMonth() {
+    monthDates.innerHTML = '';
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+    const startDay = firstDay.getDay() === 0 ? 7 : firstDay.getDay(); // Monday start
+
+    // Empty cells
+    for (let i = 1; i < startDay; i++) {
+      monthDates.appendChild(document.createElement('div'));
+    }
+
+    // Dates
+    for (let i = 1; i <= lastDay.getDate(); i++) {
+      const d = new Date(year, month, i);
+      const cell = document.createElement('div');
+      cell.textContent = i;
+      if (d.toDateString() === currentDate.toDateString()) {
+        cell.classList.add('today');
+      }
+      monthDates.appendChild(cell);
+    }
+  }
+
+  function render() {
+    renderHeader();
+    renderWeek();
+    renderMonth();
+  }
+
+toggleBtn.addEventListener('click', () => {
+  if (calendarView.classList.contains('month')) {
+    calendarView.classList.remove('month');
+    calendarView.classList.add('week');
+    modal.classList.remove('on');
+  } else {
+    calendarView.classList.remove('week');
+    calendarView.classList.add('month');
+    modal.classList.add('on');
+  }
+});
+
+modal.addEventListener('click', () => {
+  if (calendarView.classList.contains('month')) {
+    calendarView.classList.remove('month');
+    calendarView.classList.add('week');
+    modal.classList.remove('on');
+  } else {
+  }
+});
+
+
+prevBtn.addEventListener('click', () => {
+currentDate.setDate(currentDate.getDate() - 1);
+render();
+});
+
+nextBtn.addEventListener('click', () => {
+currentDate.setDate(currentDate.getDate() + 1);
+render();
+});
+
+render();
+</script>
+
+</body>
+</html>

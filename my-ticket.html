@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/tablet.css">
+    <title>마이페이지 - 보유 이용권 화면</title>
+</head>
+<body>
+    <div id="myticket">
+        <div class="wrap">                
+            <header class="header">
+                <div class="header-in">
+                    <div class="header-left">
+                        <div class="thum">
+                            <img src="./img/header/back-arrow.png">
+                        </div>
+                    </div>
+                    <div class="header-tit">
+                        <h5>보유 이용권</h5>
+                    </div>
+                    <div class="header-right">
+                        <div class="thum left" style="display: none;"> <!--아이콘 두개일때 활성화(display:none지우면됨)-->
+                            <img src="./img/header/header-timer.png">
+                        </div>
+                        <div class="thum" style="display: none;"> <!--아이콘 한개일때 활성화-->
+                            <img src="./img/header/search.png">
+                        </div>
+                        <p style="display: none;">삭제</p> <!--글자버튼일때 활성화-->
+                        <select style="display: none;"> <!--랭킹 : 셀렉박스일때 활성화-->
+                            <option value="default">광명점 랭킹</option>
+                            <option value="state">신분</option>
+                        </select>
+                    </div>
+                </div>
+            </header>
+            <div class="header-calender" style="display: none;">
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                      <button class="prev-month"><img src="./img/calender/calender-prev.png" /></button>
+                      <span class="current-month">2025년 4월</span>
+                      <button class="next-month"><img src="./img/calender/calender-next.png" /></button>
+                    </div>
+                  
+                    <div class="weekday-header">
+                      <div>월</div>
+                      <div>화</div>
+                      <div>수</div>
+                      <div>목</div>
+                      <div>금</div>
+                      <div>토</div>
+                      <div>일</div>
+                    </div>
+                  
+                    <div class="calendar-wrapper">
+                      <div class="calendar-slider"></div>
+                    </div>
+                  </div>
+                <div class="calender-open">
+                    <button type="button" class="cal-btn"></button>
+                </div>    
+            </div>
+
+            <main class="main layout">
+                <div class="bottom-menu">
+                    <div class="bottom-in">
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-home.png">
+                            <p>홈</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-study.png">
+                            <p>학습기록</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-content.png">
+                            <p>콘텐츠</p>
+                        </div>
+                        <div class="bottom-item on">
+                            <img src="./img/bottom-menu/bottom-my-selected.png">
+                            <p>MY</p>
+                        </div>
+                    </div>
+                </div>    
+                <div class="main-con">
+                    <div class="in">
+                        <div class="sec-area">
+                            <div class="ticket-box">
+                                <p class="place">올티칭 스터디카페 광명점</p>
+                                <p class="ticket-name">[고정] 기간권 3개월</p>
+                                <p class="seat">좌석 : 1층 2번</p>
+                                <div class="ticket-date">
+                                    <p>구입일 : 2025-09-30</p>
+                                    <p>만료일 : 2025-12-30</p>
+                                </div>
+                            </div>
+                            <div class="ticket-box">
+                                <p class="place">올티칭 스터디카페 광명점</p>
+                                <p class="ticket-name">[자유] 시간권 60시간</p>
+                                <p class="seat">잔여 시간 : 59시간 40분</p>
+                                <div class="ticket-date">
+                                    <p>구입일 : 2025-09-30</p>
+                                    <p>만료일 : 2025-12-30</p>
+                                </div>
+                            </div>
+                            <div class="ticket-box">
+                                <p class="place">올티칭 스터디카페 광명점</p>
+                                <p class="ticket-name">[스터디룸] 3인실 1, 1시간</p>
+                                <p class="seat">이용 시간 : 2025-09-30 00:00 ~ 01:00</p>
+                                <div class="ticket-date">
+                                    <p>구입일 : 2025-09-30</p>
+                                    <p>만료일 : 2025-09-30</p>
+                                </div>
+                            </div>
+                            <div class="ticket-box">
+                                <p class="place">올티칭 스터디카페 광명점</p>
+                                <p class="ticket-name">[사물함] 3개월</p>
+                                <p class="seat">사물함 : 1층 2번</p>
+                                <div class="ticket-date">
+                                    <p>구입일 : 2025-09-30</p>
+                                    <p>만료일 : 2025-12-30</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sec-area no-ticket" style="display: none;"> <!--보유 이용권 없을때 화면-->
+                            <div class="in">
+                                <div class="ticket-thum">
+                                    <img src="./img/mypage/no-ticket.png">
+                                </div>
+                                <p>보유 이용권이 없습니다.</p>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+
+
+<script>
+</script>
+
+</body>
+</html>

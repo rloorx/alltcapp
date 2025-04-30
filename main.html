@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/tablet.css">
+    <title>메인홈화면</title>
+</head>
+<body>
+    <div id="mainhome">
+        <div class="wrap">                
+            <header class="header">
+                <div class="header-in">
+                    <div class="header-left">
+                        <div class="thum">
+                            <img src="./img/header/logo-symbol.png">
+                        </div>
+                    </div>
+                    <div class="header-tit">
+                        <h5 style="display: none;">신분 태그 선택</h5>
+                    </div>
+                    <div class="header-right">
+                        <div class="thum left" style="display: none;"> <!--아이콘 두개일때 활성화(display:none지우면됨)-->
+                            <img src="./img/header/header-timer.png">
+                        </div>
+                        <div class="thum"> <!--아이콘 한개일때 활성화-->
+                            <img src="./img/header/notify.png">
+                        </div>
+                        <p style="display: none;">삭제</p> <!--글자버튼일때 활성화-->
+                        <select style="display: none;"> <!--랭킹 : 셀렉박스일때 활성화-->
+                            <option value="default">광명점 랭킹</option>
+                            <option value="state">신분</option>
+                        </select>
+                    </div>
+                </div>
+            </header>
+            <div class="header-calender">
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                      <button class="prev-month"><img src="./img/calender/calender-prev.png" /></button>
+                      <span class="current-month">2025년 4월</span>
+                      <button class="next-month"><img src="./img/calender/calender-next.png" /></button>
+                    </div>
+                  
+                    <div class="weekday-header">
+                      <div>월</div>
+                      <div>화</div>
+                      <div>수</div>
+                      <div>목</div>
+                      <div>금</div>
+                      <div>토</div>
+                      <div>일</div>
+                    </div>
+                  
+                    <div class="calendar-wrapper">
+                      <div class="calendar-slider"></div>
+                    </div>
+                  </div>
+                <div class="calender-open">
+                    <button type="button" class="cal-btn"></button>
+                </div>    
+            </div>
+
+            <main class="main layout">
+                <div class="bottom-menu">
+                    <div class="bottom-in">
+                        <div class="bottom-item on">
+                            <img src="./img/bottom-menu/bottom-home-selected.png">
+                            <p>홈</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-study.png">
+                            <p>학습기록</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-content.png">
+                            <p>콘텐츠</p>
+                        </div>
+                        <div class="bottom-item">
+                            <img src="./img/bottom-menu/bottom-my.png">
+                            <p>MY</p>
+                        </div>
+                    </div>
+                </div>    
+                <div class="main-con">
+                    <div class="sec sec1">
+                        <div class="in">
+                            <p class="font"><strong>일간 학습</strong></p>
+                            <div class="sec-area">
+                                <div class="sec-con timer">
+                                    <div class="seccon-tit">
+                                        <h5>타이머</h5>
+                                        <img src="./img/main/next-arrow-gray.png">
+                                    </div>
+                                    <div class="seccon-box">
+                                        <p>국어 <strong>00:59:59</strong></p>
+                                        <h2><span>누적 </span> 08:12:25</h2>
+                                    </div>
+                                </div>
+                                <div class="sec-con ranking">
+                                    <div class="seccon-tit">
+                                        <h5>랭킹</h5>
+                                        <img src="./img/main/next-arrow-gray.png">
+                                    </div>
+                                    <div class="seccon-box">
+                                        <p><span style="display: block; font-size: inherit;">올티칭 광명점</span><span style="display: block; font-size: inherit;">학습 누적시간</span></p>
+                                        <h3>1위</h3>
+                                    </div>
+                                </div>
+                                <div class="sec-con todo">
+                                    <div class="seccon-tit">
+                                        <h5>To-Do</h5>
+                                        <img src="./img/main/next-arrow-gray.png">
+                                    </div>
+                                    <div class="seccon-box">
+                                        <p>달성률 100%</p>
+                                        <h3>10/10</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="in">
+                        <div class="sec sec2">
+                            <p class="font"><strong>학습 목표</strong></p>
+                            <div class="sec-area">
+                                <div class="sec-con d-day">
+                                    <div class="seccon-tit">
+                                        <h5>D-Day</h5>
+                                        <img src="./img/main/next-arrow-gray.png">
+                                    </div>
+                                    <div class="seccon-box">
+                                        <p>한국사능력검정시험</p>
+                                        <h3>D-37일</h3>
+                                    </div>
+                                </div>
+                                <div class="sec-con goal">
+                                    <div class="seccon-tit">
+                                        <h5>학습 목표</h5>
+                                        <img src="./img/main/next-arrow-gray.png">
+                                    </div>
+                                    <div class="seccon-box">
+                                        <div class="txt-box">
+                                            <p>· 3월 내로 단어장 하나 마스터</p>
+                                            <p>· 중간고사 3합5 맞추기</p>
+                                            <p>· 5월 모의고사 1등급</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sec sec3">
+                            <p class="font"><strong>유틸리티</strong></p>
+                            <div class="sec-area">
+                                <div class="sec-con memo">
+                                    <div class="seccon-tit">
+                                        <h5>메모장</h5>
+                                        <img src="./img/main/next-arrow-gray.png">
+                                    </div>
+                                    <div class="seccon-box">
+                                        <div class="txt-box">
+                                            <p>메모하는 습관으로<br>학습 효율 UP! 성적 UP!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+
+
+<script>
+const daysDisplay = ['월', '화', '수', '목', '금', '토', '일'];
+let currentDate = new Date();
+
+function renderCalendar(date) {
+  const slider = document.querySelector('.calendar-slider');
+  slider.innerHTML = '';
+
+  const year = date.getFullYear();
+  const month = date.getMonth();
+
+  const rawFirstDay = new Date(year, month, 1).getDay();
+  const firstDay = (rawFirstDay + 6) % 7;
+
+  const lastDate = new Date(year, month + 1, 0).getDate();
+  const prevLastDate = new Date(year, month, 0).getDate();
+
+  const today = new Date();
+  const totalCells = (firstDay + lastDate <= 35) ? 35 : 42;
+
+  for (let i = 0; i < totalCells; i++) {
+    const item = document.createElement('div');
+    item.className = 'date-item';
+
+    let cellDate;
+
+    if (i < firstDay) {
+      const day = prevLastDate - (firstDay - i - 1);
+      cellDate = new Date(year, month - 1, day);
+      item.classList.add('other-month');
+    } else if (i >= firstDay + lastDate) {
+      const day = i - (firstDay + lastDate) + 1;
+      cellDate = new Date(year, month + 1, day);
+      item.classList.add('other-month');
+    } else {
+      const day = i - firstDay + 1;
+      cellDate = new Date(year, month, day);
+    }
+
+    const dayIndex = cellDate.getDay();
+    const dayLabel = daysDisplay[(dayIndex + 6) % 7]; 
+
+    const dateStr = `${cellDate.getDate()}`;
+
+    item.innerHTML = `
+      <span class="day">${dayLabel}</span>
+      <span class="date">${dateStr}</span>
+    `;
+
+    if (
+      cellDate.getFullYear() === today.getFullYear() &&
+      cellDate.getMonth() === today.getMonth() &&
+      cellDate.getDate() === today.getDate()
+    ) {
+        item.classList.add('today');
+    }
+
+        slider.appendChild(item);
+    }
+  // 상단 월 텍스트 갱신
+    document.querySelector('.current-month').textContent = `${year}년 ${month + 1}월`;
+
+  // 슬라이드 보기일 때만 오늘을 중앙 정렬 (왜잘안돼!!!!)
+    const wrapper = document.querySelector('.calendar-wrapper');
+    if (!document.querySelector('.calendar-container').classList.contains('expanded')) {
+        setTimeout(() => {
+        const todayEl = document.querySelector('.today');
+        if (wrapper && todayEl) {
+            const wrapperRect = wrapper.getBoundingClientRect();
+            const todayRect = todayEl.getBoundingClientRect();
+            const offset = todayEl.offsetLeft - (wrapperRect.width / 2) + (todayRect.width / 2);
+            wrapper.scrollLeft = offset;
+        }
+        }, 100);
+    }
+}
+
+// 초기 렌더링
+renderCalendar(currentDate);
+
+// 이전/다음 달 이동
+document.querySelector('.prev-month').addEventListener('click', () => {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    renderCalendar(currentDate);
+});
+document.querySelector('.next-month').addEventListener('click', () => {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    renderCalendar(currentDate);
+});
+
+// 달력 펼침/접힘
+document.querySelector('.calender-open button').addEventListener('click', () => {
+    const wrapper = document.querySelector('.calendar-container');
+    wrapper.classList.toggle('expanded');
+    renderCalendar(currentDate); // 상태 바뀌면 다시 그리기
+});    
+
+//접힌상태에서 7일 노출(이것또한잘안되는중)
+function updateItemWidths() {
+const container = document.querySelector('.header-calender');
+const items = document.querySelectorAll('.calendar-slider .date-item');
+const containerWidth = container.clientWidth;
+const itemWidth = containerWidth / 7;
+
+items.forEach(item => {
+    item.style.width = `${itemWidth}px`;
+});
+}
+
+// 렌더 직후 호출
+renderCalendar(currentDate);
+updateItemWidths();
+
+// 반응형 처리
+window.addEventListener('resize', updateItemWidths);
+
+</script>
+
+</body>
+</html>
