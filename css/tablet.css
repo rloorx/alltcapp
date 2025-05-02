@@ -19,5 +19,55 @@
 
 /* 태블릿 가로 반응형 */
 @media screen and (min-width: 1024px) and (orientation: landscape){
+    :root {
+        --font12:13px;
+        --font14:16px;
+        --font16:18px;
     
+        --font44:48px;
+        --font32:36px;
+        --font24:28px;
+        --font20:24px;
+        --font18:20px;
+    }
+    input,select { height: 45px;}
+    button {height:45px;}
+    button.on {background: var(--maincolor); color: #fff;}
+    .bottom-btn{position: fixed; bottom: 50px; right: 50px;}
+    .bottom-btn img{height: 70px;}
+    .bottom-menu .bottom-item{
+        margin-bottom: 30px;
+    }
+    .header .header-right .thum.left{
+        margin-right: 25px;
+    }
+    .category-btn button{
+        height: 35px !important;
+    }
+    #login .main{
+        height: 100vh;
+    }
+    #daypicker .daypick .daypick-con .day-input .daypick-box span{
+        min-width: 40px;
+    }
+    #timer .sec-area .timer-con{
+        margin-bottom: 30px;
+    }
+    #timer .main .sec1{
+        padding-top: 200px;
+        padding-bottom: 50px;
+    }
+    #timerdetail .sec2{
+        padding-top: 30px;
+    }
+    #mainhome .main .sec1{
+        padding-top: 170px;
+        padding-bottom: 20px;
+    }
+    #mainhome .sec-area .sec-con{
+        height: 150px;
+    }
+    #mainhome .sec-area .seccon-box .txt-box{
+        transform: translateY(0px);
+    }
 }

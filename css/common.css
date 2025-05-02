@@ -316,7 +316,6 @@ button.on {background: var(--maincolor); color: #fff;}
 }
 .calendar-container .calendar-wrapper {
     width: 100%;
-    max-width: 767px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     transition: max-height 0.1s ease;
@@ -355,7 +354,7 @@ button.on {background: var(--maincolor); color: #fff;}
     box-sizing: border-box;
 }
 .calendar-container.expanded .date-item{
-    width: calc(100% / 7);
+    width: calc(100% / 7) !important;
 }
 .header-calender .date-item .day {
     font-size: var(--font12);
@@ -894,6 +893,7 @@ button.on {background: var(--maincolor); color: #fff;}
     height: 30px;
     border-radius: 30px;
     display: block;
+    max-width: none;
 }
 #timer .sec-area.past{
     opacity: 0.4;
@@ -1128,6 +1128,7 @@ button.on {background: var(--maincolor); color: #fff;}
     height: 20px;
     object-fit: contain;
     filter: grayscale(10);
+    margin-right: 3px;
 }
 #timerdetail .tab-menu .rank-btn.on img{
     filter: grayscale(0);
@@ -1328,6 +1329,7 @@ button.on {background: var(--maincolor); color: #fff;}
     height: 30px;
     border-radius: 30px;
     display: block;
+    max-width: none;
 }
 /* 투두End */
 /* D-Day 등록, 학습목표 등록화면 */
@@ -2387,7 +2389,7 @@ button.on {background: var(--maincolor); color: #fff;}
     background: var(--pinkgra);
     padding: 5px;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: var(--font12);
     position: absolute; /* 절대 위치를 사용 */
     top: 50%; /* td의 중간에 위치 */
     left: 50%;
@@ -2452,6 +2454,7 @@ button.on {background: var(--maincolor); color: #fff;}
 }
 #study-record .chart-con .graph>p{
     margin-bottom: 0px;
+    color: var(--maincolor);
 }
 #study-record .chart-con .graph:last-child>p{
     font-weight: 400;
@@ -2600,7 +2603,10 @@ button.on {background: var(--maincolor); color: #fff;}
     /* 타이머 상세화면 */
     #timerdetail .main{
         padding-bottom: 40px;
-    }    
+    } 
+    #timerdetail .sec1{
+        padding-bottom: 40px;
+    }       
     /* 타이머상세End */
     /* 투두화면 */
     #todo .main{
@@ -2681,8 +2687,12 @@ button.on {background: var(--maincolor); color: #fff;}
     }
     /* 랭킹End */
     /* 타이머 - 시간기록 */
+    #timer-table .main{
+        padding-bottom: 40px;
+    }
     #timer-table .ranking-calender{
         margin-left: 230px;
+        margin-top: 60px;
     }
     #timer-table .calendar-view.week{
         margin-left: 50px;
@@ -2697,9 +2707,6 @@ button.on {background: var(--maincolor); color: #fff;}
     }
     /* 타이머 - 시간기록End */
     /* 학습기록 */
-    #study-record .main{
-        padding-bottom: 40px;
-    }    
     #study-record .calender-category{
         padding-top: 60px;
         padding-left: 230px;
