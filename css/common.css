@@ -1386,6 +1386,16 @@ button.on {background: var(--maincolor); color: #fff;}
     justify-content: space-between;
     width: 50%;
 }
+#daypicker .daypick .daypick-con .day-input .daypick-box .input-box{
+    height: 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10px;
+}
+#daypicker .daypick .daypick-con .day-input .daypick-box .input-box>span{
+    width: 100%;
+}
 #daypicker .daypick .daypick-con .day-input .daypick-box span{
     width: 10%;
     min-width: 30px;
@@ -1429,6 +1439,81 @@ button.on {background: var(--maincolor); color: #fff;}
     margin-top: 30px;
 }
 /* D-Day 등록, 학습목표 등록End */
+/* 250612 디데이등록 daypicker 레이아웃 */
+#daypicker .dday-pick-bottom{
+    position: fixed;
+    bottom: -100%; left: 0;
+    z-index: 999999;
+    width: 100%; height: 320px;
+    background: #eee;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding: 20px 20px 80px;
+    transition: bottom 0.3s;    
+}
+#daypicker .dday-pick-bottom.on{
+    bottom: 0;
+}
+#daypicker .modal{
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    z-index: 99999;
+    width: 100%;
+    height: 100vh;
+    background: transparent;
+}
+#daypicker .modal.on{
+    display: block;
+}
+#daypicker .dday-pick-bottom .select-div{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    max-width: 740px;
+    margin: 0 auto;
+}
+#daypicker .dday-pick-bottom .select-div .select-box{
+    width: calc(100%/3 - 10px);
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+#daypicker .dday-pick-bottom .select-div .select-box ul{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: y mandatory;
+    /* padding: 200px 0; */
+}
+#daypicker .dday-pick-bottom .select-div .select-box ul::-webkit-scrollbar{
+    display: none;
+}
+#daypicker .dday-pick-bottom .select-div .select-box li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    scroll-snap-align: start;
+    font-size: var(--font18);
+    color: var(--txt777);
+}
+  
+#daypicker .dday-pick-bottom .select-div .select-box li.active {
+    border-bottom: 1px solid var(--borderd9);
+    color: var(--txt);
+    font-weight: 700;
+}
+#daypicker .dday-pick-bottom button{
+    margin: 0 auto;
+    background: #000;
+}
+/* 250612 디데이등록 daypicker 레이아웃End */
 /* D-Day */
 #dday .main{
     padding-top: 100px;

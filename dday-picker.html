@@ -95,7 +95,7 @@
                                     <p><strong>D-Day 계산 방법</strong></p>
                                     <div class="day-input pick on">
                                         <div class="txt-area"><input type="radio" name="date" checked><span>날짜 입력</span></div>
-                                        <div class="daypick-box"><select></select></div>
+                                        <div class="daypick-box"><div class="input-box"><span>2025년 6월 12일</span></div></div>
                                     </div>
                                     <div class="day-input pick">
                                         <div class="txt-area"><input type="radio" name="date"><span>남은 일 수 입력</span></div>
@@ -106,7 +106,7 @@
                                     <div class="day-input">
                                         <p><strong>시간 설정</strong></p>
                                         <div class="daypick-box">
-                                            <select></select>
+                                            <div class="input-box"><span>오전 00시 00분</span></div>
                                             <span>기준</span>
                                         </div>
                                     </div>
@@ -132,6 +132,24 @@
                 </div>
             </main>
         </div>
+        <div class="modal"></div>
+        <div class="dday-pick-bottom">
+            <div class="select-div">
+                <div class="select-box">
+                    <ul id="year">
+                    </ul>
+                </div>
+                <div class="select-box">
+                    <ul id="month">
+                    </ul>
+                </div>
+                <div class="select-box">
+                    <ul id="day">
+                    </ul>
+                </div>
+            </div>
+            <button>확인</button>
+        </div>
     </div>
 
 
@@ -154,6 +172,149 @@
             radio.closest('.day-input.pick').classList.add('on');
         });
     });
+
+document.querySelectorAll('.daypick-box .input-box').forEach(selectbox => {
+    selectbox.addEventListener('click',()=>{
+        document.querySelector('.dday-pick-bottom').classList.toggle('on');
+        document.querySelector('.modal').classList.toggle('on');
+    })
+});
+
+document.querySelector('.modal').addEventListener('click', () => {
+  const picker = document.querySelector('.dday-pick-bottom');
+  const modal = document.querySelector('.modal');
+
+  if (picker.classList.contains('on')) {
+    picker.classList.remove('on');
+    modal.classList.remove('on');
+  }
+});
+
+//디데이피커처럼
+window.addEventListener('DOMContentLoaded', () => {
+  const yearUl = document.querySelector('#year');
+  const monthUl = document.querySelector('#month');
+  const dayUl = document.querySelector('#day');
+
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear();
+  const currentMonth = currentDate.getMonth() + 1;
+  const currentDay = currentDate.getDate();
+
+  function createList(ul, start, end, activeValue, unitText, infinite = false) {
+    if (!ul) return;
+
+    const baseLis = [];
+    for (let i = start; i <= end; i++) {
+      const li = document.createElement('li');
+      li.dataset.value = i;
+      li.textContent = `${i}${unitText}`;
+      baseLis.push(li);
+    }
+
+    if (!infinite) {
+      ul.innerHTML = '';
+      baseLis.forEach(li => ul.appendChild(li));
+
+      const activeLi = Array.from(ul.children).find(li => Number(li.dataset.value) === activeValue);
+      if (activeLi) activeLi.classList.add('active');
+
+      setTimeout(() => {
+        const liHeight = ul.querySelector('li')?.offsetHeight || 46.19;
+        if (!activeLi) return;
+        const liIndex = Array.from(ul.children).indexOf(activeLi);
+        const scrollTo = liHeight * Math.max(liIndex, 0); 
+        ul.scrollTo({ top: scrollTo, behavior: 'auto' });
+      }, 0);
+
+    } else {
+      const repeatCount = 5;
+      const fragment = document.createDocumentFragment();
+
+      for (let i = 0; i < repeatCount; i++) {
+        baseLis.forEach(li => {
+          fragment.appendChild(li.cloneNode(true));
+        });
+      }
+
+      ul.innerHTML = '';
+      ul.appendChild(fragment);
+
+      const allLis = Array.from(ul.children);
+      const baseLength = end - start + 1;
+
+      allLis.forEach(li => li.classList.remove('active'));
+      const firstSetLis = allLis.slice(0, baseLength);
+      const activeLi = firstSetLis.find(li => Number(li.dataset.value) === activeValue);
+      if (activeLi) activeLi.classList.add('active');
+
+      setTimeout(() => {
+        const liHeight = ul.querySelector('li')?.offsetHeight || 46.19;
+        if (!activeLi) return;
+        const liIndex = allLis.indexOf(activeLi);
+        const scrollTo = liHeight * Math.max(liIndex - 1, 0);
+        ul.scrollTo({ top: scrollTo, behavior: 'auto' });
+      }, 0);
+    }
+  }
+
+  createList(yearUl, 1900, 2100, currentYear, '년', false);
+  createList(monthUl, 1, 12, currentMonth, '월', true);
+  createList(dayUl, 1, 31, currentDay, '일', true);
+
+  document.querySelectorAll('.select-box').forEach(selectBox => {
+    const ul = selectBox.querySelector('ul');
+    let liList = Array.from(ul.querySelectorAll('li'));
+    const liHeight = liList[0]?.offsetHeight || 46.19;
+
+    const updateActive = () => {
+      const baseY = selectBox.getBoundingClientRect().top + liHeight * 1 + liHeight / 2;
+      let closestLi = null;
+      let closestDistance = Infinity;
+
+      liList.forEach(li => {
+        const liRect = li.getBoundingClientRect();
+        const liCenterY = liRect.top + liRect.height / 2;
+        const distance = Math.abs(baseY - liCenterY);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestLi = li;
+        }
+      });
+
+      liList.forEach(li => li.classList.remove('active'));
+      if (closestLi) closestLi.classList.add('active');
+    };
+
+    setTimeout(() => {
+      liList = Array.from(ul.querySelectorAll('li'));
+      updateActive();
+    }, 20);
+
+    let scrollTimeout;
+    ul.addEventListener('scroll', () => {
+      updateActive();
+
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const nearestIndex = Math.round(ul.scrollTop / liHeight);
+        const snapScrollTop = nearestIndex * liHeight;
+        ul.scrollTo({ top: snapScrollTop, behavior: 'smooth' });
+      }, 100);
+    });
+
+    ul.querySelectorAll('li').forEach((li, i) => {
+        li.addEventListener('click', () => {
+            const scrollTo = liHeight * (ul.id === 'year' ? Math.max(i, 0) : Math.max(i - 1, 0));
+            ul.scrollTo({ top: scrollTo, behavior: 'smooth' });
+
+            liList.forEach(l => l.classList.remove('active'));
+            li.classList.add('active');
+        });
+        });
+  });
+});
+
 </script>
 
 </body>
