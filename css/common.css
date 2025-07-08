@@ -212,12 +212,27 @@ button.on {background: var(--maincolor); color: #fff;}
     background: var(--popbtn);
     color: #fff;
 }
+.pop-up .pop-btn button.btn04{
+    margin: 0 auto;
+    max-width: 210px;
+    border: 1px solid var(--maincolor);
+    background: var(--maincolor);
+    color: #fff;
+}
+
 .pop-up .pop-input{
     margin-bottom: 20px;
     text-align: center;
 }
 .pop-up .pop-input input{
     text-align: center;
+    font-size: var(--font14);
+    border-radius: 5px;
+    border: 1px solid var(--borderd9);
+    width: 90%;
+    min-width: 240px;
+}
+.pop-up .pop-input select{
     font-size: var(--font14);
     border-radius: 5px;
     border: 1px solid var(--borderd9);
@@ -479,13 +494,15 @@ button.on {background: var(--maincolor); color: #fff;}
 }
 #login .btn-area{
     width: 100%;
-    position: fixed;
-    bottom: 80px; left: 0;
+    position: static;
+    bottom: auto; left: auto;
+    padding-top: 40px;
 }
 #login .btn-area .in{
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 #login .btn-area .quest-box{
     margin-top: 20px;
